@@ -6,12 +6,27 @@ import static org.junit.Assert.*;
 public class Problem3Test {
     @Test
     public void catchTheBugInBook() {
-        // quiz
+        BookFiction b = new BookFiction("Macbeth", "Shakespeare", "tragedy");
+        BookFiction b2 = new BookFiction( b );
+        assertEquals(b, b2);    //copy should be equals
+        b2.setTitle("jfbvrisfy");
+        b2.setAuthor("Pick a book");
+        assertEquals(b, b2);    //still equals because they share the same ID, they are copies.
+        BookFiction  b3 = new BookFiction("Macbeth", "Shakespeare", "tragedy");
+        assertNotEquals(b, b3); //even though they share the title and rating,not equal because the ID are different, they are separate
     }
 
     @Test
     public void catchTheBugInMovie() {
-        // quiz
+        MovieComedy m = new MovieComedy("PG13", "Good Boys" );
+        MovieComedy m2 = new MovieComedy( m );
+        assertEquals(m, m2);    //copy should be equals
+        m2.setRating("jfbvrisfy");
+        m2.setTitle("Pick a movie");
+        assertEquals(m, m2);    //still equals because they share the same ID, they are copies.
+        MovieComedy m3 = new MovieComedy("PG13", "Good Boys" );
+        assertNotEquals(m, m3); //even though they share the title and rating,not equal because the ID are different, they are separate
+
     }
 
     // DO NOT REMOVE OR CHANGE ANYTHING BELOW THIS!
